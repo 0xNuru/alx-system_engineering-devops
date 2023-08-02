@@ -3,3 +3,5 @@
 1-listit Displays the contents list of your current directory.
 
 2-bring_me_home changes the wkdir home
+
+3-listfiles lists all files in long version
