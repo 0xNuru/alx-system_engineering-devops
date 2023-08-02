@@ -5,3 +5,9 @@
 2-bring_me_home changes the wkdir home
 
 3-listfiles lists all files in long version
+
+4-listmorefiles shows hidden files in long format
+
+5-listfilesdigitonly -aln
+
+
