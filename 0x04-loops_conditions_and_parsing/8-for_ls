@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# display list of dir
+
+for name in *
+do
+echo "${name##*-}"
+done
