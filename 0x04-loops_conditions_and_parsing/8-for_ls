@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # display list of dir
 
-for name in *
-do
-echo "${name##*-}"
+list=$(ls)
+for i in $list; do
+	echo "$i" | cut -d '-' -f2
 done
