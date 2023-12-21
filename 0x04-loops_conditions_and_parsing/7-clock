@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#this script time for 12 hrs and 59 mins
+
+i=0
+while (("$i" < 13))
+do
+	echo "Hour: $i"
+	j=1
+	while (("$j" < 60))
+	do
+		echo "$j"
+		((j++))
+	done
+	((i++))
+	done
