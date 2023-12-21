@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 # fizzbuzz but in bash
 
-i=1
-
-for ((; i < 101; i++))
-{
+for num in {1..100}
+do
 	if (( num % 3 == 0 && num % 5 == 0 ))
 	then
 		echo "FizzBuzz"
@@ -17,4 +15,4 @@ for ((; i < 101; i++))
 	else
 		echo "$num"
 	fi
-}
+done
