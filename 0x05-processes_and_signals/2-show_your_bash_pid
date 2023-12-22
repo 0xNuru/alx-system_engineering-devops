@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# A bash script that displays it's own PID
-# shellcheck disable=SC2009
+# A bash script that displays pid of bash
 
 ps -auxf | grep bash
