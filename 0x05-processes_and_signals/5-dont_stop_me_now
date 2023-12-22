@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# A bash script that KILLs to infinity and beyond
+
+#get the PID of the process
+pid=$(pgrep -f ./4-to_infinity_and_beyond)
+
+#if pid was found
+if [ -n $pid ]
+then
+	kill "$pid"
+fi
+
