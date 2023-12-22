@@ -5,7 +5,7 @@
 pid=$(pgrep -f ./4-to_infinity_and_beyond)
 
 #if pid was found
-if [ -n $pid ]
+if [[ -n $pid ]]
 then
 	kill "$pid"
 fi
