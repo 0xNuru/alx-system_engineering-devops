@@ -1,4 +1,4 @@
-# A puppet command to installl flask from pip3
+# A puppet manifest to install flask from pip3
 
 package {'flask':
     ensure   => '2.1.0',
