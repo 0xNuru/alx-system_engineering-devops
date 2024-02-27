@@ -5,9 +5,17 @@
 #	When querying Nginx at its root / with a GET request using curl,
 #	it must return a page that contains the string Hello World!
 
-apt-get -y update
-apt-get -y install nginx
-mkdir -p /var/www/html
-touch /var/www/html/index.html
-echo 'Hello World!' > /var/www/html/index.html
-service nginx restart
+# Update package lists and install nginx
+apt-get update
+apt-get install -y nginx
+
+# Allow traffic from port 80
+sudo ufw allow 'Nginx HTTP'
+
+# Create a simple HTML page with the content "Hello World!"
+echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
+
+# Ensure nginx is configured to listen on port 80
+sed -i 's/^\s*listen\s*\(.*\);/listen 80;/' /etc/nginx/sites-available/default
+
+sudo service nginx restart
