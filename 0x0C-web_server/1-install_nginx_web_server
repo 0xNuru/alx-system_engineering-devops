@@ -6,8 +6,8 @@
 #	it must return a page that contains the string Hello World!
 
 # Update package lists and install nginx
-apt-get update
-apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get install -y nginx
 
 # Allow traffic from port 80
 sudo ufw allow 'Nginx HTTP'
@@ -16,6 +16,6 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 
 # Ensure nginx is configured to listen on port 80
-sed -i 's/^\s*listen\s*\(.*\);/listen 80;/' /etc/nginx/sites-available/default
+sudo sed -i 's/^\s*listen\s*\(.*\);/listen 80;/' /etc/nginx/sites-available/default
 
 sudo service nginx restart
