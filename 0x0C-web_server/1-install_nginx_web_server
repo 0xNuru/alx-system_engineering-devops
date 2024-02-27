@@ -10,7 +10,7 @@ apt-get update
 apt-get install -y nginx
 
 # Create a simple HTML page with the content "Hello World!"
-echo "<html><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
+echo "Hello World" > /var/www/html/index.html
 
 # Ensure nginx is configured to listen on port 80
 sed -i 's/^\s*listen\s*\(.*\);/listen 80;/' /etc/nginx/sites-available/default
