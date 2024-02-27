@@ -16,6 +16,6 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
 
 # Ensure nginx is configured to listen on port 80
-sudo sed -i 's/^\s*listen\s*\(.*\);/listen 80;/' /etc/nginx/sites-available/default
+# sudo sed -i 's/^\s*listen\s*\(.*\);/listen 80;/' /etc/nginx/sites-available/default
 
 sudo service nginx restart
