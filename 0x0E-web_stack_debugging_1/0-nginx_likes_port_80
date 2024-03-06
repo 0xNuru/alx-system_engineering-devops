@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
+# fix bugs in nginx configuration
 
-sudo apt-get update
-sudo apt-get -y install nginx
-sudo service nginx status
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
