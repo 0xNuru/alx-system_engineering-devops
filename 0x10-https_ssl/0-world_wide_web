@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 # a Bash script that will display information about subdomains
+subdomaininfo () {
+	answer_section=$(dig "$1" | grep -A1 'ANSWER SECTION' | tail -n 1)
 
-subdomain_info() {
-	answer_section=$(dig $1 | grep -A1 'ANSWER SECTION' | tail -n 1)
-	subdomain=$(echo "$answer_section" | awk '{print $1;}' FS=.)
+	subdomain=$(echo "$answer_section" | awk '{print $1;}' FS=.) 
 	record_type=$(echo "$answer_section" | awk '{print $4;}')
-	ip=$(echo "$answer_section" | awk '{print $5}')
+	ip_address=$(echo "$answer_section" | awk '{print $5}')
 
-	echo "The subdomain $subdomain is a $record_type record and points to $ip"
+	echo "The subdomain $subdomain is a $record_type record and points to $ip_address" 
 }
 
 if [ $# -eq 1 ]
 then
-	subdomain_info "www.$1" 
-	subdomain_info "lb-01.$1"
-	subdomain_info "web-01.$1"
-	subdomain_info "web-02.$1"
+	subdomaininfo "www.$1" 
+	subdomaininfo "lb-01.$1"
+	subdomaininfo "web-01.$1"
+	subdomaininfo "web-02.$1"
 elif [ $# -eq 2 ]
 then
-	subdomain_info "$2.$1"
+	subdomaininfo "$2.$1"
 fi
