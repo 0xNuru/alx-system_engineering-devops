@@ -1,10 +1,10 @@
 #!/bin/bash
-
+# a script should run the whoami command under the user passed as an argument
 # Exit immediately if the script doesn't receive exactly one argument
-if [[ $# -ne 1 ]]; then
-  echo "Usage: $0 <username>"
-  exit 1
-fi
+#if [[ $# -ne 1 ]]; then
+#  echo "Usage: $0 <username>"
+#  exit 1
+#fi
 
 # Use sudo with minimal privileges (using -u option) to run whoami
 sudo -u "$1" whoami
