@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # a script should run the whoami command under the user passed as an argument
 # Exit immediately if the script doesn't receive exactly one argument
 #if [[ $# -ne 1 ]]; then
