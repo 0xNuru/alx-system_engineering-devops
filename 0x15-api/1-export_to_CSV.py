@@ -27,3 +27,7 @@ if __name__ == '__main__':
                             todo.get('title')
                         )
                     )
+
+
+if __name__ == '__main__':
+    get_user_todo_list()
