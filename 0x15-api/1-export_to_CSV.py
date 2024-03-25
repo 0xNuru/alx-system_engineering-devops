@@ -1,33 +1,18 @@
 #!/usr/bin/python3
 """a script that extends your Python script to export data in the CSV format"""
-import re
+import csv
 import requests
 import sys
 
+if __name__ == "__main__":
+    user_id = sys.argv[1]
+    url = "https://jsonplaceholder.typicode.com/"
+    user = requests.get(url + "users/{}".format(user_id)).json()
+    username = user.get("username")
+    todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
-API_URL = 'https://jsonplaceholder.typicode.com'
-"""The API's URL."""
-
-
-if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        if re.fullmatch(r'\d+', sys.argv[1]):
-            id = int(sys.argv[1])
-            user = requests.get('{}/users/{}'.format(API_URL, id)).json()
-            todo_list = requests.get('{}/todos'.format(API_URL)).json()
-            user_name = user.get('username')
-            todos = list(filter(lambda x: x.get('userId') == id, todo_list))
-            with open('{}.csv'.format(id), 'w') as file:
-                for todo in todos:
-                    file.write(
-                        '"{}","{}","{}","{}"\n'.format(
-                            id,
-                            user_name,
-                            todo.get('completed'),
-                            todo.get('title')
-                        )
-                    )
-
-
-if __name__ == '__main__':
-    get_user_todo_list()
+    with open("{}.csv".format(user_id), "w", newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        [writer.writerow(
+            [user_id, username, task.get("completed"), task.get("title")]
+         ) for task in todos]
