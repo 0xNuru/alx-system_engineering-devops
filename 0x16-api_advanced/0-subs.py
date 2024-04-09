@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""a script that queries the Reddit API and returns the number of subscribers"""
+"""a script that queries the Reddit API and return the number of subs"""
 import requests
-
 
 
 def number_of_subscribers(subreddit):
@@ -12,7 +11,7 @@ def number_of_subscribers(subreddit):
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != 200:
         return 0
-    
+
     try:
         data = response.json()
         if "data" in data and "subscribers" in data["data"]:
@@ -22,4 +21,3 @@ def number_of_subscribers(subreddit):
     except ValueError:
         # In case the response isn't a valid JSON
         return 0
-
